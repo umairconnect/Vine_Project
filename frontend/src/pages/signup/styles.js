@@ -1,9 +1,15 @@
-import { styled } from '@mui/system';
+import { makeStyles } from '@mui/styles';
 
-const useStyles = styled((theme) => ({
-  inputText: {
-    backgroundColor: 'green',
-  }
+const useStyles = makeStyles((theme) => ({
+    // Define your styles here
+    buttonStyle: {
+
+
+    },
+    container: {
+       maxWidth: '60%',
+       margin: 'auto',
+    }
 }));
 
 export default useStyles;

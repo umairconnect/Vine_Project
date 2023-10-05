@@ -4,9 +4,12 @@ import useStyles from './styles';
 
 import { InputTextField } from "../../components/common/formfields/Forms";
 
-const classes = useStyles();
+
 
 function Login() {
+
+    const classes = useStyles();
+    
     return (
         <>
             <Grid row spacing={1}>
