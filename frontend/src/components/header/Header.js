@@ -5,27 +5,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
-import { makeStyles } from '@mui/styles';
+import useStyles  from './styles';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
-      display: 'none', // Hide the menu button on medium and larger screens
-    },
-  },
-  title: {
-    flexGrow: 1,
-  },
-  navButtons: {
-    [theme.breakpoints.down('sm')]: {
-      display: 'none', // Hide the buttons on small screens
-    },
-  },
-}));
 
 function Header() {
   const classes = useStyles();
