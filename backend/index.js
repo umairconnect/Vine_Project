@@ -11,18 +11,16 @@ app.get("/", (req, resp) => {
     )
 });
 
-app.post("/login", (req, resp) => {
-    const user = {
-        id: 1, 
-        username: "umair",
-        email: "abc@test.com",
-    }
-    jwt.sign({user}, JWT_SEC, {expiresIn: '300s'}, (err, token) => {
-        resp.json({
-            token
-        })
-    })
 
-})
+app.post('/signin', (req, res) => {
+    const { username, password } = req.body;
+
+    if (username === 'user' && password === 'password') {
+        const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
+        res.json({ token });
+    } else {
+        res.status(401).json({ error: 'Invalid credentials' });
+    }
+});
 
 app.listen(5000)
