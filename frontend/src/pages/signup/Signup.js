@@ -7,6 +7,16 @@ import { InputTextField, SelectField } from "../../components/common/formfields/
 
 function Signup() {
     const classes = useStyles();
+    const experienceOptions = [
+        {
+            value: "Invester",
+            label: "Invester"
+        },
+        {
+            value: "Invester2",
+            label: "Invester2"
+        }
+    ]
     return (
         <>
             <Grid className={classes.container} >
@@ -41,13 +51,22 @@ function Signup() {
                 <Grid row>
                     <Grid container>
                         <Grid item md={12} lg={12} sm={12}>
-                            <SelectField></SelectField>
+                            <SelectField options={experienceOptions}></SelectField>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                   
+                <Grid row>
+                    <Grid container>
+                        <Grid item md={12} lg={12} sm={12}>
+                            <SelectField placeholder={"Business"} options={experienceOptions}></SelectField>
                         </Grid>
                     </Grid>
                 </Grid>
 
                 <Grid row>
-                    <Button>Login</Button>
+                    <Button>Sign In</Button>
                 </Grid>
                 <Grid row>
                     <Button>Login via facebook</Button>

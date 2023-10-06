@@ -1,6 +1,7 @@
-import { TextField, Select } from '@mui/material';
+import { TextField, Select, MenuItem } from '@mui/material';
 
 import useStyles from './styles';
+import { useEffect } from 'react';
 
 function InputTextField({ type, id, value, label, ...props }) {
     const classes = useStyles();
@@ -16,13 +17,27 @@ function InputTextField({ type, id, value, label, ...props }) {
     )
 }
 
-function SelectField({ }) {
+function SelectField({ options, placeholder, ...props }) {
     const classes = useStyles();
+    useEffect(() => {
+        debugger
+        console.log(options)
+    })
     return (
         <Select className={classes.inputText}>
-            <option>
-                dsds
-            </option>
+            {/* {placeholder ?
+                <MenuItem disabled>
+                    <em>{placeholder}</em>
+                </MenuItem> : ""} */}
+
+            {options.map((item, i) => {
+                return (
+                    <MenuItem value={item.value}>
+                        {item.value}
+                    </MenuItem>
+                )
+            })}
+
         </Select>
     )
 }
