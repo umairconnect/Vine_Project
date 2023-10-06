@@ -1,22 +1,24 @@
 const express = require("express");
 const jwt = require('jsonwebtoken');
 const app = express();
+const cors = require('cors');
 const JWT_SEC = "my_jwt_sec";
 const connection = require('./db/config');
 
 
 app.get("/", (req, resp) => {
-    resp.json(
-        {
-            message: "my json is working",
-        }
-    )
+  resp.json(
+    {
+      message: "my json is working",
+    }
+  )
 });
 app.use(express.json());
-app.post('/signup', (req, res) => {
-  //res.send(req.body)
+app.use(cors());
 
-  const { user, email, password, date, token, firstname, lastname, experience, selectyourgoals} = req.body;
+app.post('/signup', (req, res) => {
+
+  const { user, email, password, date, token, firstname, lastname, experience, selectyourgoals } = req.body;
 
   const insertQuery = 'INSERT INTO user (user, email, password, date, token, firstname, lastname, experience, selectyourgoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
   const values = [user, email, password, date, token, firstname, lastname, experience, selectyourgoals];
@@ -26,9 +28,12 @@ app.post('/signup', (req, res) => {
       console.error('Error inserting data:', err);
       return;
     }
+    const token = jwt.sign({ user, email }, JWT_SEC, { expiresIn: '1h' });
+    res.status(200).json({ message: 'User registered successfully', token });
+
+
     console.log('Data inserted successfully');
   });
-
 
 });
 

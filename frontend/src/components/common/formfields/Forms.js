@@ -3,7 +3,7 @@ import { TextField, Select, MenuItem } from '@mui/material';
 import useStyles from './styles';
 import { useEffect } from 'react';
 
-function InputTextField({ type, id, value, label, ...props }) {
+function InputTextField({ type, id, name, onChange, value, label, ...props }) {
     const classes = useStyles();
     return (
         <TextField
@@ -11,7 +11,9 @@ function InputTextField({ type, id, value, label, ...props }) {
             type={type}
             label={label}
             value={value}
-            className={classes.inputText}>
+            name={name}
+            className={classes.inputText}
+            onChange={onChange}>
 
         </TextField>
     )
@@ -20,7 +22,7 @@ function InputTextField({ type, id, value, label, ...props }) {
 function SelectField({ options, placeholder, ...props }) {
     const classes = useStyles();
     useEffect(() => {
-        debugger
+       
         console.log(options)
     })
     return (
