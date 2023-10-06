@@ -18,10 +18,10 @@ app.use(cors());
 
 app.post('/signup', (req, res) => {
 
-  const { user, email, password, date, token, firstname, lastname, experience, selectyourgoals } = req.body;
+  const { fName, lName, user, email, password, experience, selectyourgoals, token } = req.body;
 
-  const insertQuery = 'INSERT INTO user (user, email, password, date, token, firstname, lastname, experience, selectyourgoals) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  const values = [user, email, password, date, token, firstname, lastname, experience, selectyourgoals];
+  const insertQuery = 'INSERT INTO user (firstname, lastname, user, email, password, experience, selectyourgoals, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+  const values = [fName, lName, user, email, password, experience, selectyourgoals, token];
 
   connection.query(insertQuery, values, (err, results) => {
     if (err) {

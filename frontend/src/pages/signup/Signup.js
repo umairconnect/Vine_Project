@@ -18,23 +18,25 @@ function Signup() {
     }
 
     const handleSubmit = async () => {
- 
-            const result = await fetch('http://localhost:5000/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(state)
-            });
+        debugger
+        console.log(state)
 
-            if (result) {
-                const data = await result.json();
-                debugger
-                console.warn(data);
-            } else {
-                console.error('HTTP Error:', result.status);
-            }
-       
+        const result = await fetch('http://localhost:5000/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(state)
+        });
+
+        if (result) {
+            const data = await result.json();
+            debugger
+            console.warn(data);
+        } else {
+            console.error('HTTP Error:', result.status);
+        }
+
     };
 
     const experienceOptions = [
@@ -77,8 +79,26 @@ function Signup() {
 
                 <Grid row>
                     <Grid container spacing={2}>
-                        <Grid item md={12} lg={12} sm={12}>
-                            <InputTextField type="email" id="email" label={"Email"}></InputTextField>
+                        <Grid item md={6} lg={6} sm={6}>
+                            <InputTextField
+                                type="text"
+                                id="user"
+                                name="user"
+                                label={"User Name"}
+                                value={state.userName}
+                                onChange={handleChange}
+                            />
+                        </Grid>
+
+                        <Grid item md={6} lg={6} sm={6}>
+                            <InputTextField
+                                type="email"
+                                id="email"
+                                name="email"
+                                label={"Email"}
+                                value={state.email}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -86,7 +106,14 @@ function Signup() {
                 <Grid row>
                     <Grid container>
                         <Grid item md={12} lg={12} sm={12}>
-                            <InputTextField type="password" id="email" label={"Password"}></InputTextField>
+                            <InputTextField
+                                type="password"
+                                id="password"
+                                label={"Password"}
+                                name="password"
+                                value={state.password}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                 </Grid>
