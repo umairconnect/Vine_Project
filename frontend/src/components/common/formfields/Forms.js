@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { TextField, Select } from '@mui/material';
 
 import useStyles from './styles';
 
@@ -11,9 +11,20 @@ function InputTextField({ type, id, value, label, ...props }) {
             label={label}
             value={value}
             className={classes.inputText}>
-            
+
         </TextField>
     )
 }
 
-export { InputTextField };
+function SelectField({ }) {
+    const classes = useStyles();
+    return (
+        <Select className={classes.inputText}>
+            <option>
+                dsds
+            </option>
+        </Select>
+    )
+}
+
+export { InputTextField, SelectField };

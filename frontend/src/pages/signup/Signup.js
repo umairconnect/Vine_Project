@@ -3,7 +3,7 @@ import { Grid, Button } from '@mui/material';
 
 import useStyles from './styles';
 
-import { InputTextField } from "../../components/common/formfields/Forms";
+import { InputTextField, SelectField } from "../../components/common/formfields/Forms";
 
 function Signup() {
     const classes = useStyles();
@@ -32,7 +32,16 @@ function Signup() {
                  <Grid row>
                     <Grid container>
                         <Grid item md={12} lg={12} sm={12}>
-                            <InputTextField type="email" id="email" label={"Email"}></InputTextField>
+                            <InputTextField type="password" id="email" label={"Password"}></InputTextField>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                
+                <Grid row>
+                    <Grid container>
+                        <Grid item md={12} lg={12} sm={12}>
+                            <SelectField></SelectField>
                         </Grid>
                     </Grid>
                 </Grid>
