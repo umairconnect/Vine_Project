@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid, Button } from '@mui/material';
 
 import useStyles from './styles';
 
 import { InputTextField, SelectField } from "../../components/common/formfields/Forms";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
     const classes = useStyles();
     const [state, setState] = useState([]);
+
+    const auth = localStorage.getItem('user')
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -17,10 +21,13 @@ function Signup() {
         }));
     }
 
-    const handleSubmit = async () => {
-        debugger
-        console.log(state)
+    useEffect(()=>{
+        if (auth) {
+            navigate('/')
+        }
+    })
 
+    const handleSubmit = async () => {
         const result = await fetch('http://localhost:5000/signup', {
             method: 'POST',
             headers: {
@@ -31,12 +38,10 @@ function Signup() {
 
         if (result) {
             const data = await result.json();
-            debugger
-            console.warn(data);
+            localStorage.setItem('user', JSON.stringify(data));
         } else {
             console.error('HTTP Error:', result.status);
         }
-
     };
 
     const experienceOptions = [
@@ -122,7 +127,13 @@ function Signup() {
                 <Grid row>
                     <Grid container>
                         <Grid item md={12} lg={12} sm={12}>
-                            <SelectField options={experienceOptions}></SelectField>
+                            <SelectField
+                                options={experienceOptions}
+                                name="experience"
+                                id="experience"
+                                value={state.experience}
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                 </Grid>
@@ -131,7 +142,13 @@ function Signup() {
                 <Grid row>
                     <Grid container>
                         <Grid item md={12} lg={12} sm={12}>
-                            <SelectField placeholder={"Business"} options={experienceOptions}></SelectField>
+                            <SelectField
+                                placeholder={"Business"}
+                                options={experienceOptions}
+                                value={state.business}
+                                id="business"
+                                onChange={handleChange}
+                            />
                         </Grid>
                     </Grid>
                 </Grid>

@@ -5,11 +5,20 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Button from '@mui/material/Button';
-import useStyles  from './styles';
+import { Link } from 'react-router-dom';
+import useStyles from './styles';
+import Nav from '../nav/Nav';
 
 
 function Header() {
   const classes = useStyles();
+
+  const auth = localStorage.getItem('user')
+
+  const logout = () => {
+    localStorage.clear();
+  }
+
 
   return (
     <div className={classes.root}>

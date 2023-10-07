@@ -19,14 +19,14 @@ function InputTextField({ type, id, name, onChange, value, label, ...props }) {
     )
 }
 
-function SelectField({ options, placeholder, ...props }) {
+function SelectField({ id, name, onChange, value, options, placeholder, ...props }) {
     const classes = useStyles();
     useEffect(() => {
-       
+
         console.log(options)
     })
     return (
-        <Select className={classes.inputText}>
+        <Select className={classes.inputText} id={id} name={name} onChange={onChange} value={value} >
             {/* {placeholder ?
                 <MenuItem disabled>
                     <em>{placeholder}</em>
