@@ -5,6 +5,10 @@ const useStyles = makeStyles((theme) => ({
     inputText: {
         color: 'white',
     },
+    container: {
+        maxWidth: '60%',
+        margin: 'auto',
+     }
 
 }));
 
