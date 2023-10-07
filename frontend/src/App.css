@@ -2,3 +2,11 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: Lato;
+  src: url(https://fonts.googleapis.com/css?family=Lato);
+}
+
+html {
+  font-family: Lato;
+}
