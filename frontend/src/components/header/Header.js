@@ -1,13 +1,12 @@
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Button from '@mui/material/Button';
+import {
+  AppBar, Toolbar, Typography,
+  IconButton, Button, Grid,
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
-import Nav from '../nav/Nav';
+import LogoWhite from './../../images/common/logoWhite.png';
+import {WhiteButtonLink} from './../../components/common/formfields/Forms';
 
 
 function Header() {
@@ -21,26 +20,40 @@ function Header() {
 
 
   return (
-    <div className={classes.root}>
+    <div className={classes.header}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Your Website
-          </Typography>
-          <div className={classes.navButtons}>
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">About</Button>
-            <Button color="inherit">Services</Button>
-            <Button color="inherit">Contact</Button>
-          </div>
+          {/* <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+            >
+            </IconButton> */}
+
+          <Grid container alignItems="center">
+            <Grid item md={3} lg={3} sm={3} className='alignLeft'>
+              <img src={LogoWhite} />
+            </Grid>
+
+            <Grid item md={6} lg={6} sm={6}>
+              <div className={classes.navLinks}>
+                <Link to="/">Home</Link>
+                <Link to="/products">Add Product</Link>
+              </div>
+            </Grid>
+
+            <Grid item md={3} lg={3} sm={3}>
+              <WhiteButtonLink
+                value={"Get Started"}
+                link={"/getStarted"}
+              />
+            </Grid>
+
+          </Grid>
+
+
+
         </Toolbar>
       </AppBar>
     </div>

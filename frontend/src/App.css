@@ -1,12 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;800&display=swap');
+
 .App {
   text-align: center;
 }
 
 @font-face {
   font-family: Lato;
-  src: url(https://fonts.googleapis.com/css?family=Lato);
+  src: url('https://fonts.googleapis.com/css?family=Lato');
 }
-
+root {
+  font-family: Lato;
+}
 html {
   font-family: Lato;
+}
+body {
+  padding: 0;
+  margin:0;
+}
+.alignLeft {
+  text-align: left;
+}
+.alignCenter {
+  text-align: center;
 }

@@ -1,78 +1,44 @@
 import React from "react";
 import { Grid, Button } from '@mui/material';
+import LogoDark from '../../images/common/logoDark.svg';
 
 import useStyles from './styles';
-
-import { InputTextField, SelectField } from "../../components/common/formfields/Forms";
+import { InputTextField, SelectField, BigButtonLink } from "../../components/common/formfields/Forms";
 
 function GetStarted() {
     const classes = useStyles();
-    const experienceOptions = [
-        {
-            value: "Invester",
-            label: "Invester"
-        },
-        {
-            value: "Invester2",
-            label: "Invester2"
-        }
-    ]
+ 
     return (
         <>
-            <Grid className={classes.container} >
-                <Grid row>
-                    <Grid container spacing={2}>
-                        <Grid item md={6} lg={6} sm={6}>
-                            <InputTextField type="text" id="FName" label={"First Name"}></InputTextField>
-                        </Grid>
-                        <Grid item md={6} lg={6} sm={6}>
-                            <InputTextField type="text" id="LName" label={"Last name"}></InputTextField>
-                        </Grid>
-                    </Grid>
-                </Grid>
+            <Grid container className={classes.whitePaper}>
 
                 <Grid row>
                     <Grid container spacing={2}>
-                        <Grid item md={12} lg={12} sm={12}>
-                            <InputTextField type="email" id="email" label={"Email"}></InputTextField>
-                        </Grid>
+
+                        <div className={classes.logoArea}>
+                            <img src={LogoDark} />
+                        </div>
+
                     </Grid>
                 </Grid>
 
-                 <Grid row>
-                    <Grid container>
-                        <Grid item md={12} lg={12} sm={12}>
-                            <InputTextField type="password" id="email" label={"Password"}></InputTextField>
-                        </Grid>
-                    </Grid>
-                </Grid>
-
-                
                 <Grid row>
                     <Grid container>
-                        <Grid item md={12} lg={12} sm={12}>
-                            <SelectField options={experienceOptions}></SelectField>
-                        </Grid>
-                    </Grid>
-                </Grid>
 
-                   
-                <Grid row>
-                    <Grid container>
-                        <Grid item md={12} lg={12} sm={12}>
-                            <SelectField placeholder={"Business"} options={experienceOptions}></SelectField>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                        <div className={classes.getStartedContent}>
+                            <h2>GET STARTED</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <Grid row className={classes.authBtn}>
+                                <BigButtonLink link="/login" value="Sign In" />
+                            </Grid>
+                            <Grid row className={classes.authBtn}>
+                                <BigButtonLink link="/signup" value="Sign Up" />
+                            </Grid>
+                        </div>
 
-                <Grid row>
-                    <Button>Sign In</Button>
-                </Grid>
-                <Grid row>
-                    <Button>Login via facebook</Button>
-                </Grid>
-                <Grid row>
-                    <Button>Login via google</Button>
+                    </Grid>
                 </Grid>
             </Grid>
 

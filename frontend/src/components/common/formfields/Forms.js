@@ -1,32 +1,28 @@
-import { TextField, Select, MenuItem } from '@mui/material';
+import { TextField, Input, OutlinedInput, Select, MenuItem, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
 import { useEffect } from 'react';
 
-function InputTextField({ type, id, name, onChange, value, label, ...props }) {
+function InputTextField({ type, id, name, onChange, value, placeholder, label, ...props }) {
     const classes = useStyles();
     return (
-        <TextField
+        <OutlinedInput
             id="outlined-basic"
             type={type}
-            label={label}
             value={value}
             name={name}
-            className={classes.inputText}
-            onChange={onChange}>
-
-        </TextField>
+            className={classes.inputField}
+            onChange={onChange}
+            placeholder={placeholder}>
+        </OutlinedInput>
     )
 }
 
 function SelectField({ id, name, onChange, value, options, placeholder, ...props }) {
     const classes = useStyles();
-    useEffect(() => {
-
-        console.log(options)
-    })
     return (
-        <Select className={classes.inputText} id={id} name={name} onChange={onChange} value={value} >
+        <Select className={classes.selectField} id={id} name={name} onChange={onChange} value={value} >
             {/* {placeholder ?
                 <MenuItem disabled>
                     <em>{placeholder}</em>
@@ -44,4 +40,50 @@ function SelectField({ id, name, onChange, value, options, placeholder, ...props
     )
 }
 
-export { InputTextField, SelectField };
+function BigButton({ onClick, value, ...props }) {
+    const classes = useStyles();
+    return (
+        <Button
+            onClick={() => onClick()}
+            className={classes.bigButton}>
+            {value}
+        </Button>
+    )
+}
+
+function BigButtonLink({ value, link, ...props }) {
+    const classes = useStyles();
+    return (
+
+
+        <Link
+            to={link}
+            className={classes.bigButtonLink}>
+            {value}
+        </ Link>
+
+    )
+}
+
+function WhiteButton({ onClick, value, ...props }) {
+    const classes = useStyles();
+    return (
+        <Button
+            onClick={() => onClick()}
+            className={classes.whiteLinkButton}>
+            {value}
+        </Button>
+    )
+}
+function WhiteButtonLink({ link, value, ...props }) {
+    const classes = useStyles();
+    return (
+        <Link
+            to={link}
+            className={classes.whiteLinkButton}>
+            {value}
+        </Link>
+    )
+}
+
+export { InputTextField, SelectField, BigButton, BigButtonLink, WhiteButton, WhiteButtonLink };
