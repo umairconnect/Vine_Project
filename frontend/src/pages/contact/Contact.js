@@ -4,10 +4,11 @@ import useStyles from "./styles";
 import drinkImage from "../../images/drinkCanImg.svg";
 import GlobeImage from "../../images/topGlobeImg.svg";
 import {Link, useNavigate} from 'react-router-dom';
+import Header from "../../components/header/Header";
 
 
 
-function HomePage() {
+function Contact() {
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -16,6 +17,8 @@ function HomePage() {
   }
   return (
     <>
+      <Header></Header>
+      
       <Grid container spacing={0} justify="space-between">
         <Grid item xs={4} className={classes.firstSection1}>
           <h1>New ways to invest in traditional assets</h1>
@@ -57,4 +60,4 @@ function HomePage() {
     </>
   )
 }
-export default HomePage;
+export default Contact;

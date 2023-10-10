@@ -4,9 +4,17 @@ import useStyles from "./styles";
 import drinkImage from "../../images/drinkCanImg.svg";
 import GlobeImage from "../../images/topGlobeImg.svg";
 import Header from "../../components/header/Header";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const classes = useStyles();
+
+  const navigate = useNavigate();
+
+  const getStart = () => {
+    navigate('/getStarted');
+  }
+
   return (
     <>
      <Header></Header>
@@ -14,7 +22,7 @@ function HomePage() {
         <Grid item xs={4} className={classes.firstSection1}>
           <h1>New ways to invest in traditional assets</h1>
           <p>At Cellar we provide a fully digital experience of owning traditional physical assets</p>
-          <Button variant="contained" className={classes.commonBtn}>Get Started</Button>
+          <Button onClick={() => getStart()} variant="contained" className={classes.commonBtn}>Get Started</Button>
         </Grid>
         <Grid item xs={6} className={classes.firstSection2}>
           <img src={GlobeImage}></img>

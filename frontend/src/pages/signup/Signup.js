@@ -169,11 +169,11 @@ function Signup() {
                         <Grid container>
                             <Grid item md={12} lg={12} sm={12}>
                                 <SelectField
-                                    placeholder={"Business"}
                                     options={experienceOptions}
                                     value={state.business}
                                     id="business"
                                     onChange={handleChange}
+                                    placeholder={"Select business"}
                                 />
                             </Grid>
                         </Grid>

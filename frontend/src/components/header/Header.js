@@ -6,7 +6,7 @@ import {
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import LogoWhite from './../../images/common/logoWhite.png';
-import {WhiteButtonLink} from './../../components/common/formfields/Forms';
+import { WhiteButtonLink } from './../../components/common/formfields/Forms';
 
 
 function Header() {
@@ -23,14 +23,7 @@ function Header() {
     <div className={classes.header}>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-            </IconButton> */}
-
+          
           <Grid container alignItems="center">
             <Grid item md={3} lg={3} sm={3} className='alignLeft'>
               <img src={LogoWhite} />
@@ -40,6 +33,8 @@ function Header() {
               <div className={classes.navLinks}>
                 <Link to="/">Home</Link>
                 <Link to="/products">Add Product</Link>
+                <Link to="/about">About US</Link>
+                <Link to="/Faq">FAQ</Link>
               </div>
             </Grid>
 
@@ -51,8 +46,6 @@ function Header() {
             </Grid>
 
           </Grid>
-
-
 
         </Toolbar>
       </AppBar>

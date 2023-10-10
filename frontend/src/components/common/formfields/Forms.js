@@ -1,4 +1,5 @@
-import { TextField, Input, OutlinedInput, Select, MenuItem, Button } from '@mui/material';
+import { TextField, Input, OutlinedInput, 
+            Select, MenuItem, Button, FormControl } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import useStyles from './styles';
@@ -22,21 +23,28 @@ function InputTextField({ type, id, name, onChange, value, placeholder, label, .
 function SelectField({ id, name, onChange, value, options, placeholder, ...props }) {
     const classes = useStyles();
     return (
-        <Select className={classes.selectField} id={id} name={name} onChange={onChange} value={value} >
-            {/* {placeholder ?
-                <MenuItem disabled>
-                    <em>{placeholder}</em>
-                </MenuItem> : ""} */}
+   
+            <Select
+                className={classes.selectField}
+                id={id}
+                name={name}
+                onChange={onChange}
+                value={value}
 
-            {options.map((item, i) => {
-                return (
-                    <MenuItem value={item.value}>
-                        {item.value}
+            >
+                {placeholder && (
+                    <MenuItem value="">
+                        <em>{placeholder}</em>
                     </MenuItem>
-                )
-            })}
-
-        </Select>
+                )}
+                {options.map((item, i) => {
+                    return (
+                        <MenuItem value={item.value}>
+                            {item.value}
+                        </MenuItem>
+                    )
+                })}
+            </Select>
     )
 }
 
