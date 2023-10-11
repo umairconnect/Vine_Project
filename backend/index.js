@@ -5,6 +5,7 @@ const cors = require('cors');
 const JWT_SEC = "my_jwt_sec";
 const connection = require('./db/config');
 const bcrypt = require('bcrypt');
+const PORT = process.env.PORT || 8000;
 
 
 app.get("/", (req, resp) => {
@@ -20,30 +21,51 @@ app.use(cors());
 app.post('/signup', (req, res) => {
   const { fName, lName, user, email, password, experience, selectyourgoals, token } = req.body;
 
-  // Hash the password
-  bcrypt.hash(password, 10, (err, hashedPassword) => {
+  // Check if the email already exists
+  const checkEmailQuery = 'SELECT * FROM user WHERE email = ?';
+  connection.query(checkEmailQuery, [email], (err, results) => {
     if (err) {
-      console.error('Error hashing password:', err);
-      return res.status(500).json({ error: 'Error hashing password' });
+      console.error('Error checking email:', err);
+      return res.status(500).json({ error: 'Error checking email' });
     }
 
-    const insertQuery = 'INSERT INTO user (firstname, lastname, user, email, password, experience, selectyourgoals, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-    const values = [fName, lName, user, email, hashedPassword, experience, selectyourgoals, token];
+    if (results.length > 0) {
+      // Email already exists, throw an error
+      return res.status(400).json({ error: 'Email already exists' });
+    }
 
-    connection.query(insertQuery, values, (err, results) => {
+    // Email does not exist, continue with user registration
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
-        console.error('Error inserting data:', err);
-        return res.status(500).json({ error: 'Error inserting data' });
+        console.error('Error hashing password:', err);
+        return res.status(500).json({ error: 'Error hashing password' });
       }
 
-      const token = jwt.sign({ user, email }, JWT_SEC, { expiresIn: '1h' });
-      res.status(200).json({ message: 'User registered successfully', token, values });
+      const insertQuery = 'INSERT INTO user (firstname, lastname, user, email, password, experience, selectyourgoals, token) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+      const values = [fName, lName, user, email, hashedPassword, experience, selectyourgoals, token];
 
-      console.log('Data inserted successfully');
+      connection.query(insertQuery, values, (err, results) => {
+        if (err) {
+          console.error('Error inserting data:', err);
+          return res.status(500).json({ error: 'Error inserting data' });
+        }
+
+        // const token = jwt.sign({ user, email }, JWT_SEC, { expiresIn: '1h' });
+        res.status(200).json({ message: 'User registered successfully', token, values });
+
+        console.log('Data inserted successfully');
+      });
     });
   });
 });
 
+app.get("/loginurl", (req, resp) => {
+  resp.json(
+    {
+      message: "my json is working",
+    }
+  )
+});
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;

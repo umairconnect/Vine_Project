@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     formContainer: {
         maxWidth: '75%',
         margin: 'auto',
+        textAlign: 'left'
     },
     container: {
         maxWidth: '60%',

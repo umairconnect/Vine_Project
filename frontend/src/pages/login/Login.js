@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Grid, Button } from '@mui/material';
 import useStyles from './styles';
 import LogoDark from '../../images/common/logoDark.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { InputTextField, BigButton, SignUpGoogle, SignUpFacebook } from "../../components/common/formfields/Forms";
 
@@ -12,7 +12,7 @@ function Login() {
 
     const classes = useStyles();
     const [state, setState] = useState([]);
-
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setState((prevData) => ({
@@ -23,7 +23,7 @@ function Login() {
 
 
     const handleSubmit = async () => {
-        const result = await fetch('http://localhost:5000/signup', {
+        const result = await fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,6 +34,7 @@ function Login() {
         if (result) {
             const data = await result.json();
             localStorage.setItem('user', JSON.stringify(data));
+            navigate('/')
         } else {
             console.error('HTTP Error:', result.status);
         }

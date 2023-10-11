@@ -9,6 +9,7 @@ import LaptopPhoneImg from "../../images/laptopPhoneImg.svg";
 import GraphIcon from "../../images/graphImg.svg";
 import CoinIcon from "../../images/coinImg.svg";
 import Header from "../../components/header/Header";
+import Pngwing from "../../images/pngwing.svg";
 
 
 function HomePage() {
@@ -39,9 +40,9 @@ function HomePage() {
             <p>Lorem ipsum</p>
           </Grid>
 
-          <Grid item className={classes.drinkItem}>
-            <img src={drinkImage}></img>
-            <p>Lorem ipsum</p>
+          <Grid item className={classes.drinkItem} style={{minHeight: '480px'}}>
+            <img src={Pngwing}></img>
+            <p>Lorem ipsum dolor sit</p>
           </Grid>
 
           <Grid item className={classes.drinkItem}>
@@ -78,24 +79,26 @@ function HomePage() {
       <Grid container className={classes.fourthSection}>
 
         <Grid container className={classes.fourthSectionItems}>
-          <Grid item className={classes.cardItem}>
+          <Grid item xl={6} md={6} sm={6} className={classes.cardItem}>
             <img src={GraphIcon}></img>
             <h2>Lorem ipsum dolor sit</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
           </Grid>
-          <Grid item className={classes.cardItem}>
+          <Grid item xl={6} md={6} sm={6} className={classes.cardItem}>
             <img src={CoinIcon}></img>
             <h2>Lorem ipsum dolor sit</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
           </Grid>
         </Grid>
 
-        <Grid container>
+
+      </Grid>
+
+      
+      <Grid container>
           <h1>About Us</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </Grid>
-
-      </Grid>
 
     </>
   )
