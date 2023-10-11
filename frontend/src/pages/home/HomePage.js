@@ -15,7 +15,7 @@ function HomePage() {
   return (
     <>
       <Grid container spacing={0} justify="space-between">
-        <Grid item xs={6} className={classes.firstSection1}>
+        <Grid item xs={4} className={classes.firstSection1}>
           <h1>New ways to invest in traditional assets</h1>
           <p>At Cellar we provide a fully digital experience of owning traditional physical assets</p>
           <Button variant="contained" className={classes.commonBtn}>Get Started</Button>
@@ -45,8 +45,8 @@ function HomePage() {
           <Grid item className={classes.drinkItem}>
           <img src={drinkImage}></img>
           <p>Lorem ipsum</p>
+          </Grid>
 
-        </Grid>
         </Grid>
 
         <Grid item><Button variant="contained" className={classes.commonBtn}>Explore more Drinks</Button></Grid>
@@ -86,7 +86,7 @@ function HomePage() {
             </Grid>
          </Grid>
 
-         <Grid container>
+         <Grid container className={classes.fourthSectionlower}>
             <h1>About Us</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
          </Grid>

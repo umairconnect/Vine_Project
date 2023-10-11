@@ -2,37 +2,45 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
     firstSection1: {
-        textAlign: 'left',
-        margin: '100px',
-        paddingLeft: '35px',
+        textAlign: 'left !important',
+        margin: '51px 145px 31px 97px !important',
+        paddingLeft: '10px',
         '& h1': {
-          fontWeight: '900',
-          fontSize: '48px'
+          fontWeight: '900 !important',
+          fontSize: '48px !important'
         },
         '& p': {
-         fontSize: '28px'
+         fontSize: '28px !important'
         }
     },
+
     commonBtn: {
-        marginTop: '30px',
-        backgroundColor: '#981B46',
-        padding: '10px 24px 10px 24px',
-        fontSize: '14px',
+        marginTop: '30px !important',
+        backgroundColor: '#981B46 !important',
+        padding: '10px 24px 10px 24px !important',
+        fontSize: '14px !important',
         '&:hover': {
-            backgroundColor: '#7B1B3E'
+            backgroundColor: '#7B1B3E !important'
         }
     },
+
     firstSection2: {
-       textAlign: 'right'
+       textAlign: 'right',
+       '& img': {
+         width: '670px'
+       }
     },
+
     secondSection: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column !important',
+        padding: '20px',
         '& h1': {
             justifyContent: 'center',
             padding: '60px',
            
         },
+
         '& button': {
             margin: '40px'
         }
@@ -43,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         flexDirection: 'row',
         gap: '50px',
+
         '& :nth-child(4)': {
             height: '500px',
 
@@ -69,20 +78,23 @@ const useStyles = makeStyles((theme) => ({
             padding: '60px 40px 0px 40px'
         }
     },
+
     thirdSection: {
         backgroundColor: '#F4F0F1',
-        backgroundImage: 'url("../../images/thirdSectionVector.svg")',
+        backgroundImage: "url('../images/thirdSectionVector.svg') !important",
     },
+
     thirdSectionImages: {
         width: '500px',
         padding: '60px'
     },
+
     thirdSectionContent: {
         textAlign: 'left',
         padding: '60px',
 
         '& h1': {
-            fontSize: '40px',
+            fontSize: '36px',
             padding: '6px'
         },
         '& p': {
@@ -90,16 +102,24 @@ const useStyles = makeStyles((theme) => ({
             padding: '6px'
         }
     },
-    fourthSectionItems: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '50px'
-    },
+
+
     cardItem: {
-        flexDirection: 'column',
+        
+
         border: '1px hidden aqua',
         borderRadius: '4px',
         boxShadow: '0px 0px 10px aqua'
+    },
+
+    fourthSectionLower: {
+        
+        textAlign: 'left',
+         
+        '& p': {
+           padding: '10px',
+           margin: '10px'
+        }
     }
     
 }));
