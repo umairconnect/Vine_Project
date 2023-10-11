@@ -3,10 +3,11 @@ import { Grid, Button } from '@mui/material';
 
 import useStyles from './styles';
 
-import { InputTextField, SelectField, BigButton } from "../../components/common/formfields/Forms";
+import { InputTextField, SelectField, BigButton, SignUpFacebook, SignUpGoogle } from "../../components/common/formfields/Forms";
 import { useNavigate } from "react-router-dom";
 import LogoDark from '../../images/common/logoDark.svg';
 import { Link } from 'react-router-dom';
+
 
 function Signup() {
     const classes = useStyles();
@@ -30,6 +31,9 @@ function Signup() {
     })
 
     const handleSubmit = async () => {
+        if (state.fName.value == '') {
+
+        }
         const result = await fetch('http://localhost:5000/signup', {
             method: 'POST',
             headers: {
@@ -94,6 +98,10 @@ function Signup() {
                                     onChange={handleChange}
                                     placeholder={"First name"}
                                 />
+                                {/* {fNameError || state.fName == '' ?
+                                    <span className="error_msg">Please right full name here..</span>
+                                 : ''} */}
+
                             </Grid>
                             <Grid item md={6} lg={6} sm={6}>
                                 <InputTextField
@@ -184,14 +192,24 @@ function Signup() {
                             onClick={handleSubmit}
                             value={"Sign Up"}
                         />
+
+
                     </Grid>
 
+
                     <Grid row>
-                        <Button>Login via facebook</Button>
+                        <SignUpGoogle
+                            onClick={handleSubmit}
+                            value={"Sign via Google"} />
                     </Grid>
+
+                    
                     <Grid row>
-                        <Button>Login via google</Button>
+                        <SignUpFacebook
+                            onClick={handleSubmit}
+                            value={"Sign via Facebook"} />
                     </Grid>
+
 
                     <Grid row>
                         <p className={classes.accountMsg}>Already have an Account? <Link to="/login">Login</Link></p>

@@ -13,7 +13,7 @@ import About from "../../pages/about/About";
 function Routing() {
     return (
         <Routes>
-            <Route path="/" element={<Products />}></Route>
+            <Route path="/" element={<HomePage />}></Route>
             <Route element={<PrivateRoute />}>
                 <Route path="/buy" element={<h1> Update products </h1>}></Route>
             </Route>

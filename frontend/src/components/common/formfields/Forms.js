@@ -1,6 +1,9 @@
 import { TextField, Input, OutlinedInput, 
             Select, MenuItem, Button, FormControl } from '@mui/material';
 import { Link } from 'react-router-dom';
+import GoogleIcon from './../../../images/icons/googleIcon.svg';
+import FaceBookIcon from './../../../images/icons/facebookIcon.svg';
+
 
 import useStyles from './styles';
 import { useEffect } from 'react';
@@ -48,6 +51,29 @@ function SelectField({ id, name, onChange, value, options, placeholder, ...props
     )
 }
 
+function SignUpGoogle({ onClick, value, ...props }) {
+    const classes = useStyles();
+    return (
+        <Button
+            onClick={() => onClick()}
+            className={classes.SignUpGoogle}>
+           <img src={GoogleIcon} /> {value}
+        </Button>
+    )
+}
+
+function SignUpFacebook({ onClick, value, ...props }) {
+    const classes = useStyles();
+    return (
+        <Button
+            onClick={() => onClick()}
+            className={classes.SignUpFacebook}>
+             <img src={FaceBookIcon} /> {value}
+        </Button>
+    )
+}
+
+
 function BigButton({ onClick, value, ...props }) {
     const classes = useStyles();
     return (
@@ -94,4 +120,5 @@ function WhiteButtonLink({ link, value, ...props }) {
     )
 }
 
-export { InputTextField, SelectField, BigButton, BigButtonLink, WhiteButton, WhiteButtonLink };
+export { InputTextField, SelectField, BigButton, BigButtonLink, 
+    WhiteButton, WhiteButtonLink, SignUpGoogle, SignUpFacebook };

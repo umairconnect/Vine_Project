@@ -33,7 +33,7 @@ function Header() {
               <div className={classes.navLinks}>
                 <Link to="/">Home</Link>
                 <Link to="/products">Add Product</Link>
-                <Link to="/about">About US</Link>
+                <Link to="/about">About Us</Link>
                 <Link to="/Faq">FAQ</Link>
               </div>
             </Grid>

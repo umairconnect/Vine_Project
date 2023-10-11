@@ -4,7 +4,7 @@ import useStyles from './styles';
 import LogoDark from '../../images/common/logoDark.svg';
 import { Link } from 'react-router-dom';
 
-import { InputTextField, BigButton } from "../../components/common/formfields/Forms";
+import { InputTextField, BigButton, SignUpGoogle, SignUpFacebook } from "../../components/common/formfields/Forms";
 
 
 
@@ -96,6 +96,8 @@ function Login() {
                         </Grid>
                     </Grid>
 
+
+
                     <Grid row>
                         <Grid item md={12} lg={12} sm={12}>
                             <Grid row className={classes.authBtn}>
@@ -104,12 +106,26 @@ function Login() {
                                     value={"Sign In"}
                                 />
                             </Grid>
-
-                            <Grid row>
-                                <p className={classes.accountMsg}>Don’t have an Account? <Link to="/signup">Signup</Link></p>
-                            </Grid>
                         </Grid>
                     </Grid>
+
+                    <Grid row>
+                        <SignUpGoogle
+                            onClick={handleSubmit}
+                            value={"Sign via Google"} />
+                    </Grid>
+
+
+                    <Grid row>
+                        <SignUpFacebook
+                            onClick={handleSubmit}
+                            value={"Sign via Facebook"} />
+                    </Grid>
+
+                    <Grid row>
+                        <p className={classes.accountMsg}>Don’t have an Account? <Link to="/signup">Signup</Link></p>
+                    </Grid>
+
                 </div>
 
 

@@ -53,6 +53,51 @@ const useStyles = makeStyles((theme) => ({
             color: '#FFF !important',
         }
     },
+    SignUpGoogle: {
+        borderRadius: '4px !important',
+        background: '#FFF !important',
+        boxShadow: '0px 0px 20px 0px #0000001F',
+        fontFamily: 'Lato !important',
+        fontSize: '14px !important',
+        color: 'black !important',
+        fontStyle: 'normal !important',
+        fontWeight: '700 !important',
+        lineHeight: 'normal !important',
+        width: '100% !important',
+        minHeight: '46px',
+        margin: '6px 0 !important',
+        textTransform: 'capitalize !important',
+        "& img": {
+            margin: '0px 10px',
+        },
+        "&:hover": {
+            background: '#981B46 !important',
+            color: '#FFF !important',
+        }
+    },
+
+    SignUpFacebook: {
+        borderRadius: '4px !important',
+        background: '#0DA8FF !important',
+        boxShadow: '0px 0px 20px 0px #0000001F',
+        fontFamily: 'Lato !important',
+        fontSize: '14px !important',
+        color: 'white !important',
+        fontStyle: 'normal !important',
+        fontWeight: '700 !important',
+        lineHeight: 'normal !important',
+        width: '100% !important',
+        minHeight: '46px',
+        margin: '6px 0 !important',
+        textTransform: 'capitalize !important',
+        "& img": {
+            margin: '0px 10px',
+        },
+        "&:hover": {
+            background: '#0076b8 !important',
+            color: '#FFF !important',
+        }
+    },
     bigButtonLink: {
         borderRadius: '4px !important',
         border: '1px solid #981B46 !important',
