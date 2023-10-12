@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#981B46 !important',
         padding: '10px 24px 10px 24px !important',
         fontSize: '14px !important',
+        textTransform: 'capitalize !important',
         '&:hover': {
             backgroundColor: '#7B1B3E !important'
         }
@@ -103,16 +104,25 @@ const useStyles = makeStyles((theme) => ({
         }
     },
 
-
-    cardItem: {
-        
-
-        border: '1px hidden aqua',
-        borderRadius: '4px',
-        boxShadow: '0px 0px 10px aqua'
+    fourthSectionItems: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '50px'
     },
 
-    fourthSectionLower: {
+    cardItem: {
+        padding: '50px',
+        border: '1px hidden aqua',
+        borderRadius: '4px',
+        boxShadow: '0px 0px 10px aqua',
+        '& img': {
+            width: '150px'
+        }
+    },
+
+    fourthSectionlower: {
         
         textAlign: 'left',
          
@@ -120,7 +130,48 @@ const useStyles = makeStyles((theme) => ({
            padding: '10px',
            margin: '10px'
         }
+    },
+ 
+    fifthSection: {
+        background: 'linear-gradient(to top, #6A1836 0%, #94214A 100%) !important',
+        display: 'flex',
+        flexDirection: 'row !important'
+    },
+    fifthSectionContent: {
+        textAlign: 'left',
+        width: '500px',
+        padding: '85px 200px 0px 40px',
+        '& h1, p': {
+            color: 'white',
+            padding: '12px'
+        }
+    },
+    fifthSectionForm: {
+      padding: '20px',
+      backgroundColor: '#631732',
+      border: '1px hidden #631732',
+      borderRadius: '4px',
+      margin: '40px !important',
+      '& h3': {
+        color: 'white'
+      },
+      '& button': {
+        width: '100%',
+        border: 'none',
+        backgroundColor: '#D9D9D9',
+        color: '#530722',
+        fontWeight: '600',
+        textTransform: 'capitalize'
+      },
+      '& button:hover': {
+         backgroundColor: '#CCCCCC'
+      },
+      '& input, textarea': {
+        color: 'white'
+      }
     }
+
+
     
 }));
 
