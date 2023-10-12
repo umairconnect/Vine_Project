@@ -103,17 +103,18 @@ function HomePage() {
         
         <Grid container xs={3} justify="flex-end" direction="column" alignItems="center" className={classes.fifthSectionForm}>
             <h3>Contact Us</h3>
-            <Grid container spacing={0} >
-            <TextField size="small" placeholder="Name" style={{ width: '100%', background: '#AB2B58', color: 'white'}}></TextField>
+            <Grid container>
+              
+            <TextField size="small" placeholder="Name" style={{ width: '100%', background: '#AB2B58', color: 'white', marginBottom: '18px'}}></TextField>
             
-            <TextField size="small" placeholder="Email" style={{ width: '100%', background: '#AB2B58', color: 'white' }}></TextField>
+            <TextField size="small" placeholder="Email" style={{ width: '100%', background: '#AB2B58', color: 'white',  marginBottom: '18px' }}></TextField>
             
-            <TextField multiline rows={5} placeholder="Message" style={{ width: '100%', background: '#AB2B58', color: 'white' }}></TextField>
+            <TextField multiline rows={5} placeholder="Message" style={{ width: '100%', background: '#AB2B58', color: 'white',  marginBottom: '18px' }}></TextField>
             
             <Button variant="container">Submit</Button>
-            </Grid>
-           
             
+            </Grid>
+
         </Grid>
       </Grid>
      
