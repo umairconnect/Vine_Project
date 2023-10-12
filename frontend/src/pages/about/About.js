@@ -7,6 +7,7 @@ import drinkImage from "../../images/drinkCanImg.svg";
 import GlobeImage from "../../images/topGlobeImg.svg";
 import { Link, useNavigate } from 'react-router-dom';
 import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 
 function About() {
     const classes = useStyles();
@@ -33,7 +34,7 @@ function About() {
             </Grid>
 
 
-
+            <Footer></Footer>
 
         </>
     )

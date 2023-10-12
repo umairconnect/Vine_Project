@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     commonContent: {
+        padding: '60px 0',
         "& p": {
             fontFamily: 'Lato',
             color: '#94214A',

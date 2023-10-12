@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
             fontSize: '28px'
         }
     },
+    aboutContainer: {
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        padding: '30px 30px 0px 30px',
+    },
     commonBtn: {
         padding: '10px 24px 10px 24px !important',
         fontSize: '16px !important',
@@ -85,8 +90,9 @@ const useStyles = makeStyles((theme) => ({
             padding: '6px'
         },
         '& p': {
-            fontSize: '18px',
-            padding: '6px'
+            fontSize: '21px',
+            padding: '6px',
+            lineHeight: '33px'
         }
     },
     fourthSectionItems: {
@@ -122,16 +128,25 @@ const useStyles = makeStyles((theme) => ({
     fifthSection: {
         background: 'linear-gradient(to top, #6A1836 0%, #94214A 100%) !important',
         display: 'flex',
+        margin: '50px 0',
         flexDirection: 'row !important'
     },
     fifthSectionContent: {
         textAlign: 'left',
         width: '500px',
         padding: '85px 200px 0px 40px',
-        '& h1, p': {
+        '& p': {
             color: 'white',
-            padding: '12px'
+            padding: '6px',
+            fontSize: '21px',
+            lineHeight: '33px',
+        },
+        '& h1': {
+            fontSize: '40px',
+            color:'white',
+            lineHeight: '33px',
         }
+        
     },
     fifthSectionForm: {
         padding: '20px',

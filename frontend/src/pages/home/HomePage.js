@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Button, TextField } from '@mui/material';
 import useStyles from "./styles";
+import Footer from "../../components/footer/Footer";
 
 import drinkImage from "../../images/drinkCanImg.svg";
 import GlobeImage from "../../images/topGlobeImg.svg";
@@ -11,6 +12,7 @@ import CoinIcon from "../../images/coinImg.svg";
 import Header from "../../components/header/Header";
 import Pngwing from "../../images/pngwing.svg";
 import SoftDrink from "../../images/common/softDrink.svg";
+import AboutSecBg from "../../images/common/aboutSecBg.png";
 
 
 function HomePage() {
@@ -98,17 +100,17 @@ function HomePage() {
       </Grid>
 
 
-      <Grid container className={classes.container} style={{backgroundImage: ''}}>
+      <Grid container className={classes.aboutContainer} style={{ backgroundImage: 'url(' + AboutSecBg + ')' }}>
         <Grid row>
-          <Grid container alignItems={'center'}>
+          <Grid container alignItems={'center'} className={classes.fifthSectionContent}>
 
             <Grid item xl={6} md={6} sm={6}>
-               <h2>About Us</h2>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1>About Us</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit</p>
             </Grid>
 
             <Grid item xl={6} md={6} sm={6}>
-                <img src={SoftDrink} />
+              <img src={SoftDrink} />
             </Grid>
 
           </Grid>
@@ -139,6 +141,7 @@ function HomePage() {
         </Grid>
       </Grid>
 
+      <Footer></Footer>
 
     </>
   )

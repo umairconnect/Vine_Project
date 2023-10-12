@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
         }
       },
       commonAccordion: {
+        padding: '60px 0',
         "& .MuiAccordion-root": {
             boxShadow: '0px 4px 20px 0px #00000026',
             border: 0,
