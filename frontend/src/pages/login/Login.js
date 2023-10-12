@@ -12,6 +12,7 @@ function Login() {
 
     const classes = useStyles();
     const [state, setState] = useState([]);
+    const [error, setError] = useState({});
     const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,22 +23,74 @@ function Login() {
     }
 
 
-    const handleSubmit = async () => {
-        const result = await fetch('http://localhost:5000/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(state)
-        });
+    const Validate = (errorList) => {
 
-        if (result) {
-            const data = await result.json();
-            localStorage.setItem('user', JSON.stringify(data));
-            navigate('/')
-        } else {
-            console.error('HTTP Error:', result.status);
+        if (!state.email) {
+            setError(prevState => ({
+                ...prevState,
+                emailError: true
+            }));
+            errorList.push(true);
         }
+        else {
+            setError(prevState => ({
+                ...prevState,
+                emailError: false
+            }));
+        }
+
+        if (!state.password) {
+            setError(prevState => ({
+                ...prevState,
+                passwordError: true
+            }));
+            errorList.push(true);
+        }
+        else {
+            setError(prevState => ({
+                ...prevState,
+                passwordError: false
+            }));
+        }
+    }
+
+
+    const handleSubmit = async () => {
+        let errorList = [];
+        Validate(errorList);
+
+        if (errorList.length < 1) {
+
+            const result = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(state)
+            });
+            debugger
+            console.log(result);
+
+            if (result.status === 401) {
+                setError({ ...error, notfoundError: true });
+            } else if (result.status === 402) {
+                setError({ ...error, passNotFoundErr: true, notfoundError: false });
+
+            } else if (result.status === 200) {
+                const data = await result.json();
+                localStorage.setItem('user', JSON.stringify(data));
+                navigate('/')
+                setError({
+                    ...error,
+                    passNotFoundErr: false,
+                    notfoundError: false
+                });
+            } else {
+                console.error('HTTP Error:', result.status);
+            }
+
+        }
+
     };
 
     return (
@@ -73,26 +126,36 @@ function Login() {
                         <Grid container>
                             <Grid item md={12} lg={12} sm={12}>
                                 <InputTextField
-                                    type="text"
-                                    id="user"
-                                    name="user"
-                                    label={"User Name"}
-                                    value={state.userName}
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    label={"User email"}
+                                    value={state.email}
                                     onChange={handleChange}
                                     placeholder={"Email"}
                                 />
+                                {error.emailError && !state.email ?
+                                    <span className="error_msg">Please write user email..</span>
+                                    : error.notfoundError ?
+                                        <span className="error_msg">User not found..</span>
+                                        : ''}
                             </Grid>
 
                             <Grid item md={12} lg={12} sm={12}>
                                 <InputTextField
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    label={"Email"}
-                                    value={state.email}
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    label={"Password"}
+                                    value={state.password}
                                     onChange={handleChange}
                                     placeholder={"Password"}
                                 />
+                                {error.passwordError && !state.password ?
+                                    <span className="error_msg">Please write password..</span>
+                                    : error.passNotFoundErr ?
+                                        <span className="error_msg">Wrong password..</span>
+                                        : ''}
                             </Grid>
                         </Grid>
                     </Grid>

@@ -59,13 +59,6 @@ app.post('/signup', (req, res) => {
   });
 });
 
-app.get("/loginurl", (req, resp) => {
-  resp.json(
-    {
-      message: "my json is working",
-    }
-  )
-});
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
@@ -76,6 +69,8 @@ app.post('/login', (req, res) => {
       console.error('Error querying database:', err);
       return res.status(500).json({ error: 'Error querying database' });
     }
+    debugger
+    
 
     if (results.length === 0) {
       return res.status(401).json({ error: 'User not found' });
@@ -96,7 +91,7 @@ app.post('/login', (req, res) => {
         res.status(200).json({ message: 'Login successful', token });
       } else {
         // Passwords do not match
-        res.status(401).json({ error: 'Invalid password' });
+        res.status(402).json({ error: 'Invalid password' });
       }
     });
   });

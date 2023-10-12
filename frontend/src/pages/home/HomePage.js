@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button } from '@mui/material';
+import { Grid, Button, TextField } from '@mui/material';
 import useStyles from "./styles";
 
 import drinkImage from "../../images/drinkCanImg.svg";
@@ -10,6 +10,7 @@ import GraphIcon from "../../images/graphImg.svg";
 import CoinIcon from "../../images/coinImg.svg";
 import Header from "../../components/header/Header";
 import Pngwing from "../../images/pngwing.svg";
+import SoftDrink from "../../images/common/softDrink.svg";
 
 
 function HomePage() {
@@ -40,7 +41,7 @@ function HomePage() {
             <p>Lorem ipsum</p>
           </Grid>
 
-          <Grid item className={classes.drinkItem} style={{minHeight: '480px'}}>
+          <Grid item className={classes.drinkItem} style={{ minHeight: '480px' }}>
             <img src={Pngwing}></img>
             <p>Lorem ipsum dolor sit</p>
           </Grid>
@@ -76,29 +77,68 @@ function HomePage() {
         </Grid>
       </Grid>
 
-      <Grid container className={classes.fourthSection}>
+      <Grid container className={classes.container} justifyContent={'center'}>
 
-        <Grid container className={classes.fourthSectionItems}>
-          <Grid item xl={6} md={6} sm={6} className={classes.cardItem}>
+        <Grid item xl={5} md={5} sm={5}>
+          <div className={classes.cardItem}>
             <img src={GraphIcon}></img>
             <h2>Lorem ipsum dolor sit</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-          </Grid>
-          <Grid item xl={6} md={6} sm={6} className={classes.cardItem}>
+          </div>
+
+        </Grid>
+        <Grid item xl={5} md={5} sm={5}>
+          <div className={classes.cardItem}>
             <img src={CoinIcon}></img>
             <h2>Lorem ipsum dolor sit</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-          </Grid>
+          </div>
         </Grid>
-
 
       </Grid>
 
-      
-      <Grid container>
-          <h1>About Us</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+      <Grid container className={classes.container} style={{backgroundImage: ''}}>
+        <Grid row>
+          <Grid container alignItems={'center'}>
+
+            <Grid item xl={6} md={6} sm={6}>
+               <h2>About Us</h2>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </Grid>
+
+            <Grid item xl={6} md={6} sm={6}>
+                <img src={SoftDrink} />
+            </Grid>
+
+          </Grid>
         </Grid>
+      </Grid>
+
+
+      <Grid container className={classes.fifthSection}>
+        <Grid item xs={7} className={classes.fifthSectionContent}>
+          <h1>Contact Us</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </Grid>
+
+        <Grid container xs={3} justify="flex-end" direction="column" alignItems="center" className={classes.fifthSectionForm}>
+          <h3>Contact Us</h3>
+          <Grid container>
+
+            <TextField size="small" placeholder="Name" className={classes.contactInput}></TextField>
+
+            <TextField size="small" placeholder="Email" className={classes.contactInput}></TextField>
+
+            <TextField multiline rows={5} placeholder="Message" className={classes.contactInput}></TextField>
+
+            <Button variant="container">Submit</Button>
+
+          </Grid>
+
+        </Grid>
+      </Grid>
+
 
     </>
   )

@@ -13,8 +13,10 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
     },
     formContainer: {
-        maxWidth: '75%',
+        maxWidth: '70%',
+        width: '70%',
         margin: 'auto',
+        textAlign: 'left',
     },
     container: {
         maxWidth: '60%',

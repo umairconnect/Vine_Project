@@ -6,17 +6,16 @@ const useStyles = makeStyles((theme) => ({
         margin: '100px',
         paddingLeft: '35px',
         '& h1': {
-          fontWeight: '900',
-          fontSize: '48px'
+            fontWeight: '900',
+            fontSize: '48px'
         },
         '& p': {
-         fontSize: '28px'
+            fontSize: '28px'
         }
     },
     commonBtn: {
         padding: '10px 24px 10px 24px !important',
         fontSize: '16px !important',
-        marginTop: '16px !important',
         backgroundColor: '#981B46 !important',
         textTransform: 'capitalize !important',
         fontWeight: '600 !important',
@@ -25,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     firstSection2: {
-       textAlign: 'right'
+        textAlign: 'right'
     },
     secondSection: {
         display: 'flex',
@@ -33,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         '& h1': {
             justifyContent: 'center',
             padding: '60px',
-           
+
         },
         '& button': {
             margin: '40px'
@@ -48,23 +47,21 @@ const useStyles = makeStyles((theme) => ({
         '& :nth-child(4)': {
             height: '500px',
 
-           '& img': {
-              padding: '90px 70px 0px 70px'
-           }
+            '& img': {
+                padding: '90px 70px 0px 70px'
+            }
 
         }
     },
 
     drinkItem: {
-       border: '1px hidden aqua',
-       borderRadius: '4px',
-       boxShadow: '0px 0px 10px aqua',
-    
+        boxShadow: '0px 4px 40px 0px #00000026',
+        borderRadius: '4px',
+        minWidth: '350px',
         '& p': {
-          fontWeight: 'bold',
-          fontSize: '24px',
-          padding: '0px'
-      
+            fontWeight: 'bold',
+            fontSize: '24px',
+            padding: '0px'
         },
         '& img': {
             width: '180px',
@@ -93,17 +90,100 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     fourthSectionItems: {
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '50px'
+    
+        display: 'flex !important',
+        flexDirection: 'column !important',
+        padding: '30px',
     },
     cardItem: {
         flexDirection: 'column',
         border: '1px hidden aqua',
         borderRadius: '4px',
-        boxShadow: '0px 0px 10px aqua'
+        boxShadow: '0px 4px 40px 0px #00000026',
+        minHeight: '300px',
+        margin: '30px',
+        padding: '30px',
+    },
+
+    container: {
+        padding: '60px',
+    },
+
+    fourthSectionlower: {
+
+        textAlign: 'left',
+
+        '& p': {
+            padding: '10px',
+            margin: '10px'
+        }
+    },
+
+    fifthSection: {
+        background: 'linear-gradient(to top, #6A1836 0%, #94214A 100%) !important',
+        display: 'flex',
+        flexDirection: 'row !important'
+    },
+    fifthSectionContent: {
+        textAlign: 'left',
+        width: '500px',
+        padding: '85px 200px 0px 40px',
+        '& h1, p': {
+            color: 'white',
+            padding: '12px'
+        }
+    },
+    fifthSectionForm: {
+        padding: '20px',
+        backgroundColor: '#631732',
+        border: '1px hidden #631732',
+        borderRadius: '4px',
+        margin: '40px !important',
+        '& h3': {
+            color: 'white'
+        },
+        '& button': {
+            width: '100%',
+            border: 'none',
+            backgroundColor: '#D9D9D9',
+            color: '#530722',
+            fontWeight: '600',
+            textTransform: 'capitalize'
+        },
+        '& button:hover': {
+            backgroundColor: '#CCCCCC'
+        },
+        '& input, textarea': {
+            color: 'white'
+        },
+
+    },
+    contactInput: {
+        width: '100%',
+        "& .MuiInputBase-root": {
+            padding: 0,
+            "& textarea": {
+                padding: '8px 11px',
+            }
+        },
+        "& input": {
+            background: '#AB2B58',
+            color: 'white',
+            marginBottom: '18px',
+            borderRadius: '5px'
+        },
+        "& fieldset": {
+            border: 0,
+        },
+        '& textarea': {
+            background: '#AB2B58',
+            color: 'white',
+            marginBottom: '18px',
+            borderRadius: '5px'
+        }
     }
-    
+
+
 }));
 
 export default useStyles;

@@ -16,14 +16,12 @@ function Routing() {
             <Route path="/" element={<HomePage />}></Route>
             <Route element={<PrivateRoute />}>
                 <Route path="/buy" element={<h1> Update products </h1>}></Route>
+                <Route path="/Products" element={<Products />}></Route>
             </Route>
             <Route path="/GetStarted" element={<GetStarted />}></Route>
-            <Route path="/Products" element={<Products />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
             <Route path="/Faq" element={<Faq />} />
             <Route path="/about" element={<About />} />
-
-
             <Route path="/signup" element={<Signup />}> </Route>
             <Route path="/login" element={<Login />}> </Route>
         </Routes>

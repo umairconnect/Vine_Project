@@ -1,5 +1,7 @@
-import { TextField, Input, OutlinedInput, 
-            Select, MenuItem, Button, FormControl } from '@mui/material';
+import {
+    TextField, Input, OutlinedInput,
+    Select, MenuItem, Button, FormControl
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import GoogleIcon from './../../../images/icons/googleIcon.svg';
 import FaceBookIcon from './../../../images/icons/facebookIcon.svg';
@@ -26,28 +28,24 @@ function InputTextField({ type, id, name, onChange, value, placeholder, label, .
 function SelectField({ id, name, onChange, value, options, placeholder, ...props }) {
     const classes = useStyles();
     return (
-   
-            <Select
-                className={classes.selectField}
-                id={id}
-                name={name}
-                onChange={onChange}
-                value={value}
 
-            >
-                {placeholder && (
-                    <MenuItem value="">
-                        <em>{placeholder}</em>
+        <Select
+            className={classes.selectField}
+            id={id}
+            name={name}
+            onChange={onChange}
+            value={value}
+            defaultEmpty
+        >
+ 
+            {options.map((item, i) => {
+                return (
+                    <MenuItem value={item.value}>
+                        {item.label}
                     </MenuItem>
-                )}
-                {options.map((item, i) => {
-                    return (
-                        <MenuItem value={item.value}>
-                            {item.value}
-                        </MenuItem>
-                    )
-                })}
-            </Select>
+                )
+            })}
+        </Select>
     )
 }
 
@@ -57,7 +55,7 @@ function SignUpGoogle({ onClick, value, ...props }) {
         <Button
             onClick={() => onClick()}
             className={classes.SignUpGoogle}>
-           <img src={GoogleIcon} /> {value}
+            <img src={GoogleIcon} /> {value}
         </Button>
     )
 }
@@ -68,7 +66,7 @@ function SignUpFacebook({ onClick, value, ...props }) {
         <Button
             onClick={() => onClick()}
             className={classes.SignUpFacebook}>
-             <img src={FaceBookIcon} /> {value}
+            <img src={FaceBookIcon} /> {value}
         </Button>
     )
 }
@@ -120,5 +118,7 @@ function WhiteButtonLink({ link, value, ...props }) {
     )
 }
 
-export { InputTextField, SelectField, BigButton, BigButtonLink, 
-    WhiteButton, WhiteButtonLink, SignUpGoogle, SignUpFacebook };
+export {
+    InputTextField, SelectField, BigButton, BigButtonLink,
+    WhiteButton, WhiteButtonLink, SignUpGoogle, SignUpFacebook
+};
