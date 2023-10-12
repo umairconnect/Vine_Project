@@ -168,7 +168,26 @@ const useStyles = makeStyles((theme) => ({
       },
       '& input, textarea': {
         color: 'white'
-      }
+      },
+     
+    },
+    contactInput: {
+        width: '100%',
+        "& input": {
+            background: '#AB2B58',
+            color: 'white', 
+            marginBottom: '18px',
+            borderRadius: '5px'
+        },
+        "& fieldset": {
+            border: 0,
+        },
+        '& textarea': {
+            background: '#AB2B58',
+            color: 'white', 
+            marginBottom: '18px',
+            borderRadius: '5px'
+        }
     }
 
 

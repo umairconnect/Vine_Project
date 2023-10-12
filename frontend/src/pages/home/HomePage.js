@@ -105,11 +105,11 @@ function HomePage() {
             <h3>Contact Us</h3>
             <Grid container>
               
-            <TextField size="small" placeholder="Name" style={{ width: '100%', background: '#AB2B58', color: 'white', marginBottom: '18px'}}></TextField>
+            <TextField size="small" placeholder="Name" className={classes.contactInput}></TextField>
             
-            <TextField size="small" placeholder="Email" style={{ width: '100%', background: '#AB2B58', color: 'white',  marginBottom: '18px' }}></TextField>
+            <TextField size="small" placeholder="Email" className={classes.contactInput}></TextField>
             
-            <TextField multiline rows={5} placeholder="Message" style={{ width: '100%', background: '#AB2B58', color: 'white',  marginBottom: '18px' }}></TextField>
+            <TextField multiline rows={5} placeholder="Message" className={classes.contactInput}></TextField>
             
             <Button variant="container">Submit</Button>
             
