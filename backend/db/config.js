@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "vine_project",
+  host: "185.61.152.65",
+  user: "nodepzok_vine_api",
+  password: "nodepzok_vine_api",
+  database: "nodepzok_vine_api",
 });
 
 connection.connect(function(err) {
