@@ -5,7 +5,7 @@ const cors = require('cors');
 const JWT_SEC = "my_jwt_sec";
 const connection = require('./db/config');
 const bcrypt = require('bcrypt');
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5001;
 
 
 app.get("/", (req, resp) => {
@@ -97,4 +97,4 @@ app.post('/login', (req, res) => {
   });
 });
 
-app.listen(5000)
+app.listen(PORT)
