@@ -163,13 +163,15 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: '#D9D9D9',
             color: '#530722',
             fontWeight: '600',
-            textTransform: 'capitalize'
+            textTransform: 'capitalize',
+            padding: '12px',
         },
         '& button:hover': {
             backgroundColor: '#CCCCCC'
         },
         '& input, textarea': {
-            color: 'white'
+            color: 'white',
+            padding: '12px',
         },
 
     },

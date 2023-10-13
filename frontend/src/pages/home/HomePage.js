@@ -21,12 +21,12 @@ function HomePage() {
     <>
       <Header></Header>
       <Grid container spacing={0} justify="space-between" alignItems={'center'}>
-        <Grid item xs={6} md={6} lg={6} className={classes.firstSection1}>
+        <Grid item xs={12} md={6} lg={6} sm={6} className={classes.firstSection1}>
           <h1>New ways to invest in traditional assets</h1>
           <p>At Cellar we provide a fully digital experience of owning traditional physical assets</p>
           <Button variant="contained" className={classes.commonBtn}>Get Started</Button>
         </Grid>
-        <Grid item xs={6} md={6} lg={6} className={classes.firstSection2}>
+        <Grid item xs={12} md={6} lg={6} sm={6} className={classes.firstSection2}>
           <img src={GlobeImage}></img>
         </Grid>
       </Grid>
@@ -61,10 +61,10 @@ function HomePage() {
       </Grid>
 
       <Grid container className={classes.thirdSection}>
-        <Grid item xs={6} className={classes.thirdSectionImages}>
+        <Grid item xs={12} sm={6} lg={6} className={classes.thirdSectionImages}>
           <img src={LaptopPhoneImg}></img>
         </Grid>
-        <Grid item xs={6} className={classes.thirdSectionContent}>
+        <Grid item xs={12} sm={6} lg={6} className={classes.thirdSectionContent}>
           <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           <Button variant="contained" className={classes.commonBtn}>Explore Marketplace</Button>
@@ -81,7 +81,7 @@ function HomePage() {
 
       <Grid container className={classes.container} justifyContent={'center'}>
 
-        <Grid item xl={5} md={5} sm={5}>
+        <Grid item sx={12} xl={5} md={5} sm={5}>
           <div className={classes.cardItem}>
             <img src={GraphIcon}></img>
             <h2>Lorem ipsum dolor sit</h2>
@@ -89,7 +89,7 @@ function HomePage() {
           </div>
 
         </Grid>
-        <Grid item xl={5} md={5} sm={5}>
+        <Grid item sx={12} xl={5} md={5} sm={5}>
           <div className={classes.cardItem}>
             <img src={CoinIcon}></img>
             <h2>Lorem ipsum dolor sit</h2>
@@ -104,12 +104,12 @@ function HomePage() {
         <Grid row>
           <Grid container alignItems={'center'} className={classes.fifthSectionContent}>
 
-            <Grid item xl={6} md={6} sm={6}>
+            <Grid item xs={12} xl={6} md={6} sm={6}>
               <h1>About Us</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit</p>
             </Grid>
 
-            <Grid item xl={6} md={6} sm={6}>
+            <Grid item xs={12} xl={6} md={6} sm={6}>
               <img src={SoftDrink} />
             </Grid>
 
@@ -119,12 +119,12 @@ function HomePage() {
 
 
       <Grid container className={classes.fifthSection}>
-        <Grid item xs={7} className={classes.fifthSectionContent}>
+        <Grid item xs={12} sm={7} md={7} lg={7} className={classes.fifthSectionContent}>
           <h1>Contact Us</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaLorem ipsum dolor sit amet, consectetur adipiscing elit</p>
         </Grid>
 
-        <Grid container xs={3} justify="flex-end" direction="column" alignItems="center" className={classes.fifthSectionForm}>
+        <Grid container item xs={12} sm={4} md={4} lg={4}  justify="flex-end" direction="column" alignItems="center" className={classes.fifthSectionForm}>
           <h3>Contact Us</h3>
           <Grid container>
 
