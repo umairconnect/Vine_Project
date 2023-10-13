@@ -1,10 +1,10 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: "185.61.152.65",
-  user: "nodepzok_vine_api",
-  password: "nodepzok_vine_api",
-  database: "nodepzok_vine_api",
+  host: "sql.freedb.tech",
+  user: "freedb_Vine_Project",
+  password: "FC@n$m7AKM5zQ37",
+  database: "freedb_Vine_Project",
 });
 
 connection.connect(function(err) {
