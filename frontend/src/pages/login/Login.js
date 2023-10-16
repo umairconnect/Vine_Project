@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Grid, Button } from '@mui/material';
+import { Grid } from '@mui/material';
 import useStyles from './styles';
 import LogoDark from '../../images/common/logoDark.svg';
 import { Link, useNavigate } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 import { InputTextField, BigButton, SignUpGoogle, SignUpFacebook } from "../../components/common/formfields/Forms";
 
@@ -54,6 +55,29 @@ function Login() {
         }
     }
 
+    const responseGoogle = async (response) => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const idToken = response.tokenId;
+        debugger
+        console.log(idToken);
+        
+        // Send the `idToken` to your Node.js server for authentication
+        fetch('http://localhost:5002/auth/google', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ idToken }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Handle the response from the server, e.g., set user session, redirect, etc.
+            })
+            .catch((error) => {
+                // Handle authentication error
+                console.error(error);
+            });
+    };
 
     const handleSubmit = async () => {
         let errorList = [];
@@ -61,7 +85,7 @@ function Login() {
 
         if (errorList.length < 1) {
 
-            const result = await fetch('http://localhost:5000/login', {
+            const result = await fetch('http://localhost:5002/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -174,9 +198,15 @@ function Login() {
                     </Grid>
 
                     <Grid row>
-                        <SignUpGoogle
-                            onClick={handleSubmit}
-                            value={"Sign via Google"} />
+                        <GoogleLogin
+                            clientId="587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com"
+                            buttonText="Sign via Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                            className={classes.SignUpGoogle}
+                        />
+                      
                     </Grid>
 
 

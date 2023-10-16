@@ -1,11 +1,15 @@
 const express = require("express");
 const jwt = require('jsonwebtoken');
 const app = express();
+const { OAuth2Client } = require('google-auth-library');
 const cors = require('cors');
 const JWT_SEC = "my_jwt_sec";
 const connection = require('./db/config');
 const bcrypt = require('bcrypt');
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
+
+
+// const client = new OAuth2Client('587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com');
 
 
 app.get("/", (req, resp) => {
@@ -17,6 +21,63 @@ app.get("/", (req, resp) => {
 });
 app.use(express.json());
 app.use(cors());
+
+
+const client = new OAuth2Client({
+  clientId: '587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com',
+  redirectUri: 'http://localhost:5002'
+})
+
+
+// Handle user registration or login via Google
+app.post('/auth/google-signup', (req, res) => {
+  const idToken = req.body.idToken;
+
+  async function verify() {
+    const ticket = await client.verifyIdToken({
+      idToken,
+      audience: '587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com',
+    });
+    const payload = ticket.getPayload();
+    const userId = payload['sub'];
+
+    const existingUser = await findUserByGoogleId(userId);
+
+    if (existingUser) {
+
+      const token = 'your_generated_jwt_token';
+      res.json({ token });
+    } else {
+      /
+      const newUser = await createUserFromGooglePayload(payload);
+      const token = 'your_generated_jwt_token';
+      res.json({ token });
+    }
+  }
+
+  verify().catch(console.error);
+});
+
+//Login via google
+
+
+
+app.post('/auth/google', (req, res) => {
+  const idToken = req.body.idToken;
+
+  async function verify() {
+    const ticket = await client.verifyIdToken({
+      idToken,
+      audience: '587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com',
+    });
+    const payload = ticket.getPayload();
+    const userId = payload['sub'];
+    res.status(200).json({ message: 'User registered successfully', idToken: req.body.idToken });
+
+  }
+
+  verify().catch(console.error);
+});
 
 app.post('/signup', (req, res) => {
   const { fName, lName, user, email, password, experience, selectyourgoals, token } = req.body;
@@ -70,7 +131,7 @@ app.post('/login', (req, res) => {
       return res.status(500).json({ error: 'Error querying database' });
     }
     debugger
-    
+
 
     if (results.length === 0) {
       return res.status(401).json({ error: 'User not found' });

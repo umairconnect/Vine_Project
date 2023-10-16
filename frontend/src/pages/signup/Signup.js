@@ -7,6 +7,7 @@ import { InputTextField, SelectField, BigButton, SignUpFacebook, SignUpGoogle } 
 import { useNavigate } from "react-router-dom";
 import LogoDark from '../../images/common/logoDark.svg';
 import { Link } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 
 function Signup() {
@@ -31,6 +32,28 @@ function Signup() {
             navigate('/')
         }
     })
+    const responseGoogle = (response) => {
+        const idToken = response.tokenId;
+        debugger
+        console.log(idToken)
+        // Send the `idToken` to your Node.js server for registration
+        fetch('/auth/google-signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ idToken }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Handle the response from the server, e.g., set user session, redirect, etc.
+            })
+            .catch((error) => {
+                // Handle authentication error
+                console.error(error);
+            });
+    };
+
 
 
     const Validate = (errorList) => {
@@ -105,6 +128,8 @@ function Signup() {
         }
 
     };
+
+
 
 
     const selectGoal = [
@@ -275,9 +300,16 @@ function Signup() {
 
 
                     <Grid row>
-                        <SignUpGoogle
-                            onClick={handleSubmit}
-                            value={"Sign via Google"} />
+                     
+
+                        <GoogleLogin
+                            clientId="587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com"
+                            buttonText="Sign Up with Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                            className={classes.SignUpGoogle}
+                        />
                     </Grid>
 
 

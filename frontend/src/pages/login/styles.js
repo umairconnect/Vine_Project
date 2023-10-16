@@ -63,7 +63,41 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: '12px',
         letterSpacing: '0em',
         textAlign: 'center',
-    }
+    },
+    SignUpGoogle: {
+        width: '100% !important',
+        boxShadow: '0px 0px 20px 0px #0000001F !important',
+        background: '#FFF !important',
+        borderRadius: '4px !important !important',
+        color: 'black !important !important',
+  
+        fontFamily: 'Lato !important',
+        fontSize: '14px !important',
+
+        fontStyle: 'normal !important',
+        fontWeight: '700 !important',
+        lineHeight: 'normal !important',
+
+        minHeight: '46px',
+        margin: '6px 0 !important',
+        textTransform: 'capitalize !important',
+        justifyContent: 'center !important',
+        "& img": {
+            margin: '0px 10px',
+        },
+        "&:hover": {
+            background: '#981B46 !important',
+            color: '#FFF !important',
+        },
+        "& span": {
+            justifyContent: 'center',
+            fontWeight: 'bold !important',
+            color: 'black',
+        },
+        "& div": {
+            background: 'transparent !important',
+        }
+    },
 }));
 
 export default useStyles;
