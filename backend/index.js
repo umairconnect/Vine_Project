@@ -48,7 +48,7 @@ app.post('/auth/google-signup', (req, res) => {
       const token = 'your_generated_jwt_token';
       res.json({ token });
     } else {
-      /
+      
       const newUser = await createUserFromGooglePayload(payload);
       const token = 'your_generated_jwt_token';
       res.json({ token });
