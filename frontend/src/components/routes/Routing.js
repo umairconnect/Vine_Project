@@ -9,6 +9,7 @@ import GetStarted from "./../../pages/getStarted/GetStarted";
 import Contact from "../../pages/contact/Contact";
 import Faq from "../../pages/faq/Faq";
 import About from "../../pages/about/About";
+import CustomerSupport from "../../pages/customerSupport/CustomerSupport";
 
 function Routing() {
     return (
@@ -17,6 +18,7 @@ function Routing() {
             <Route element={<PrivateRoute />}>
                 <Route path="/buy" element={<h1> Update products </h1>}></Route>
                 <Route path="/Products" element={<Products />}></Route>
+                <Route path="/CustomerSupport" element={<CustomerSupport />}></Route>
             </Route>
             <Route path="/GetStarted" element={<GetStarted />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>

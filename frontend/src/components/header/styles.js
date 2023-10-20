@@ -26,13 +26,14 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   logsLink: {
-    color: 'white',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'right',
-    fontSize: '18px',
-    fontWeight: 600,
-    textDecoration: 'none',
+    color: 'white !important',
+    display: 'flex !important',
+    alignItems: 'center !important',
+    justifyContent: 'right !important',
+    fontSize: '18px !important',
+    fontWeight: '600 !important',
+    textDecoration: 'none !important',
+    textTransform: 'capitalize !important',
     "& img": {
       margin: '0 10px',
       background: 'linear-gradient(180deg, #53001E 0%, #7E0C35 100%)',
@@ -40,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
       width: '25px',
       padding: '7px',
       borderRadius: '50px',
+    },
+  
+  },
+  navDropDown: {
+    "& a": {
+      textDecoration: 'none',
     }
   }
 

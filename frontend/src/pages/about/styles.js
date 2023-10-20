@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
             fontFamily: 'Lato',
             fontSize: '44px',
             fontWeight: 700,
-            lineHeight: '48px',
             letterSpacing: '0em',
             textAlign: 'left',
             color: '#94214A',
@@ -40,7 +39,10 @@ const useStyles = makeStyles((theme) => ({
             fontWeight: 400,
             lineHeight: '33px',
             letterSpacing: '0em',
-            textAlign: 'center',
+            textAlign: 'left',
+        },
+        "& h2": {
+            textAlign:'left',
         }
     },
     commonAccordion: {
@@ -59,7 +61,11 @@ const useStyles = makeStyles((theme) => ({
         },
         "& .MuiCollapse-root": {
             textAlign: 'left',
+        },
+        "& h2": {
+            marginTop: 0,
         }
+        
     }
 }));
 
