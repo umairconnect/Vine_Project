@@ -5,7 +5,7 @@ const { OAuth2Client } = require('google-auth-library');
 const cors = require('cors');
 const JWT_SEC = "my_jwt_sec";
 const connection = require('./db/config');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const PORT = process.env.PORT || 5002;
 
 
@@ -32,6 +32,8 @@ const client = new OAuth2Client({
 // Handle user registration or login via Google
 app.post('/auth/google-signup', (req, res) => {
   const idToken = req.body.idToken;
+  debugger
+  console.log(idToken)
 
   async function verify() {
     const ticket = await client.verifyIdToken({
@@ -48,7 +50,6 @@ app.post('/auth/google-signup', (req, res) => {
       const token = 'your_generated_jwt_token';
       res.json({ token });
     } else {
-      /
       const newUser = await createUserFromGooglePayload(payload);
       const token = 'your_generated_jwt_token';
       res.json({ token });
@@ -58,7 +59,6 @@ app.post('/auth/google-signup', (req, res) => {
   verify().catch(console.error);
 });
 
-//Login via google
 
 
 
@@ -111,7 +111,6 @@ app.post('/signup', (req, res) => {
           return res.status(500).json({ error: 'Error inserting data' });
         }
 
-        // const token = jwt.sign({ user, email }, JWT_SEC, { expiresIn: '1h' });
         res.status(200).json({ message: 'User registered successfully', token, values });
 
         console.log('Data inserted successfully');
