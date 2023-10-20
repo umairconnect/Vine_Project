@@ -5,7 +5,7 @@ const { OAuth2Client } = require('google-auth-library');
 const cors = require('cors');
 const JWT_SEC = "my_jwt_sec";
 const connection = require('./db/config');
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 8895;
 
 app.get("/", (req, resp) => {
   resp.json({
