@@ -107,7 +107,7 @@ function Signup() {
         Validate(errorList);
 
         if (errorList.length < 1) {
-            const result = await fetch('http://localhost:5000/signup', {
+            const result = await fetch('http://localhost:8895/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

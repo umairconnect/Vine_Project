@@ -62,7 +62,7 @@ function Login() {
         console.log(idToken);
         
         // Send the `idToken` to your Node.js server for authentication
-        fetch('http://localhost:5002/auth/google', {
+        fetch('http://localhost:8895/auth/google', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ function Login() {
 
         if (errorList.length < 1) {
 
-            const result = await fetch('http://localhost:5002/login', {
+            const result = await fetch('http://localhost:8895/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

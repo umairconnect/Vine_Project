@@ -17,7 +17,7 @@ app.use(cors());
 
 const client = new OAuth2Client({
   clientId: '587694116558-vrfp6qen3jjrfma0euk7072cfcbht8br.apps.googleusercontent.com',
-  redirectUri: 'http://localhost:5002'
+  redirectUri: 'http://localhost:8895'
 });
 
 // Handle user registration or login via Google
