@@ -62,7 +62,7 @@ function Login() {
         console.log(idToken);
         
         // Send the `idToken` to your Node.js server for authentication
-        fetch('http://localhost:8895/auth/google', {
+        fetch('https://nodejsclusters-151591-0.cloudclusters.net/auth/google', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ function Login() {
 
         if (errorList.length < 1) {
 
-            const result = await fetch('http://localhost:8895/login', {
+            const result = await fetch('https://nodejsclusters-151591-0.cloudclusters.net/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
