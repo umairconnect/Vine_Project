@@ -37,7 +37,7 @@ function Signup() {
         debugger
         console.log(idToken)
         // Send the `idToken` to your Node.js server for registration
-        fetch('/auth/google-signup', {
+        fetch('https://nodejsclusters-151591-0.cloudclusters.net/auth/google-signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ function Signup() {
         Validate(errorList);
 
         if (errorList.length < 1) {
-            const result = await fetch('http://localhost:8895/signup', {
+            const result = await fetch('https://nodejsclusters-151591-0.cloudclusters.net/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
